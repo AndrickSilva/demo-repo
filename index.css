@@ -2,6 +2,7 @@
   margin: 0%;
   padding: 0%;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 body {
   font-family: sans-serif;
@@ -13,14 +14,38 @@ nav {
   position: sticky;
   top: 0%;
 }
-.logo {
-  float: right;
-  margin-right: 3%;
+
+.topnav{
+  display: flex;
+  justify-content: stretch;
+}
+
+.logo{
+  order: -1;
+  width: 25%;
+  margin: 0 2%;
+}
+
+.logo img {
+ 
+  text-align: right;
+  align-content: center;
+}
+
+.nav1{
+  width: 50%;
+  align-self: center;
+}
+
+.nav2{
+  width: 20%;
+  align-self: center;
+  margin: 1%;
 }
 
 .topnav a:hover {
   border-bottom: 2px solid #0f5da0;
-  transition-duration: 0.1s;
+  transition: ease-in-out;
 }
 
 .topnav a.active {
@@ -41,8 +66,28 @@ a {
 }
 
 a:hover {
-  color: grey;
+  color: #ccc;
 }
+
+.nav2 input{
+  width: 70%;
+  padding: 1% 2%;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn-sm{
+  padding: 2% 4%;
+  color: #ffff;
+  border: none;
+  border-radius: 4px; 
+  font-weight: bold;
+  background-color: #0f5da0;}
+
+.btn-sm:hover {
+    background-color: #03537b;
+  }
+
 
 .banner-area {
   width: 100%;
@@ -53,11 +98,11 @@ a:hover {
   background-position: center;
 }
 .content-area {
+  width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 8%;
 }
 .content {
   text-align: center;
@@ -87,12 +132,10 @@ a:hover {
   color: whitesmoke;
   transition-duration: 0.4s;
   cursor: pointer;
+  font-weight: bold;
 }
 .btn1:hover {
   background-color: #03537b;
   /* color: grey; */
 }
 
-button {
-  font-weight: bold;
-}
