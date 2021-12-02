@@ -1,0 +1,87 @@
+db.student.insertMany([{
+    "roll": 3,
+    "fname": "abner",
+    "lname": "silva",
+    "dob": new Date(2001,07,11),
+    "hobbies":["football","cycling","MMA"],
+    "address": {"hno": 1236, "city": "margoa", "state": "goa", "zip": 403718},
+    "Male": true,
+    "stipend": 30000,
+    "phone": 1111111113
+    },
+    {
+    "roll": 4,
+    "fname": "antonio",
+    "lname": "silva",
+    "dob": new Date(2001,07,12),
+    "hobbies":["football","boxing","MMA"],
+    "address": {"hno": 1237, "city": "vasco", "state": "goa", "zip": 403719},
+    "Male": true,
+    "stipend": 40000,
+    "phone": 1111111114
+    },
+    {
+    "roll": 5,
+    "fname": "leena",
+    "lname": "silva",
+    "dob": new Date(2001,07,13),
+    "hobbies":["football","cooking","MMA"],
+    "address": {"hno": 1238, "city": "margoa", "state": "goa", "zip": 403716},
+    "Male": true,
+    "stipend": 50000,
+    "phone": 1111111115
+    },
+    {
+    "roll": 6,
+    "fname": "senzia",
+    "lname": "fernandes",
+    "dob": new Date(2001,08,02),
+    "hobbies":["teaching","gardening","cooking"],
+    "address": {"hno": 1239, "city": "margoa", "state": "goa", "zip": 403720},
+    "Male": false,
+    "stipend": 60000,
+    "phone": 1111111116
+    },
+    {
+    "roll": 7,
+    "fname": "gresila",
+    "lname": "silva",
+    "dob": new Date(2001,07,14),
+    "hobbies":["craft","gardening","cooking"],
+    "address": {"hno": 1239, "city": "margoa", "state": "goa", "zip": 403718},
+    "Male": false,
+    "stipend": 70000,
+    "phone": 1111111117
+    },
+    {
+    "roll": 8,
+    "fname": "gloria",
+    "lname": "silva",
+    "dob": new Date(2001,07,15),
+    "hobbies":["reading","gardening","cooking"],
+    "address": {"hno": 1240, "city": "vasco", "state": "goa", "zip": 403721},
+    "Male": false,
+    "stipend": 80000,
+    "phone": 1111111118
+}])
+
+
+db.student.find({"$and": [{"hobbies": "football"}]}, {"fname": 1, "lname": 1})
+
+db.student.find({"Male":false },{"fname": 1, "lname": 1, "stipend": 1}).count()
+
+db.student.find({"Male":false },{"fname": 1, "lname": 1, "stipend": 1})
+
+db.student.find({},{"fname": 1, "lname": 1, "stipend": 1})
+
+db.student.find({},{"fname": 1, "lname": 1, "stipend": 1}).sort({"stipend":-1}).limit(3)
+
+ db.student.find({"hobbies": {"$size":2}}, {"fname": 1, "lname": 1})
+
+ db.student.find({"$or": [{"address.city":"margoa"}, {"stipend":1}]}, {"fname": 1, "lname": 1})
+
+ db.student.find({},{"fname": 1, "lname": 1, "stipend": 1}).sort({"stipend": 1})
+
+ db.student.find({"$and": [{"hobbies": "football"}]}, {"fname": 1, "lname": 1})
+
+ db.student.find().pretty()
