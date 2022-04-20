@@ -1,3 +1,15 @@
+
+db.student.insert({
+    "roll": 10,
+    "fname": "rac",
+    "lname": "andrson",
+    "dob": new Date(2005,07,11),
+    "hobbies":["pool","cycling","MMA"],
+    "address": {"hno": 1536, "city": "margoa", "state": "goa", "zip": 408718},
+    "Male": true,
+    "stipend": 11000,
+    "phone": 1121111113
+    })
 db.student.insertMany([{
     "roll": 3,
     "fname": "abner",
@@ -85,3 +97,32 @@ db.student.find({},{"fname": 1, "lname": 1, "stipend": 1}).sort({"stipend":-1}).
  db.student.find({"$and": [{"hobbies": "football"}]}, {"fname": 1, "lname": 1})
 
  db.student.find().pretty()
+
+
+
+
+
+#
+db.student.find({$and:[{ "address.city":"margoa" }, { "hobbies": "football" }]}, { "fname": 1, "lname": 1, "roll": 1 }).pretty()
+db.student.find({$or:[{ "address.city":"margoa" }, { "hobbies": "football" }]}, { "fname": 1, "lname": 1, "roll": 1 }).pretty()
+db.student.find({$and:[{"stipend": {$lte:10000}}, { "Male": true }]}, { "fname": 1, "lname": 1, "roll": 1 }).pretty()
+db.student.find({$and:[{"stipend": {$lte:100000}}, { "Male": true }]}, { "fname": 1, "lname": 1, "roll": 1 }).pretty()
+db.student.find({$or:[{ "address.city":"margoa" }, { "address.city": "vasco" }]}, { "fname": 1, "lname": 1, "roll": 1 }).pretty()
+db.student.find({$or:[{ "address.city":"margoa" }, { "hobbies": "football" }]}, { "fname": 1, "lname": 1, "roll": 1 }).pretty()
+db.student.find({$and:[{ "address.city":"margoa" }, { "hobbies": "football" }]}, { "fname": 1, "lname": 1, "roll": 1 }).pretty()
+
+AND and OR
+db.student.find({"stipend":{$lte: 50000}, $or:[{"hobbies": "football"},{"hobbies": "MMA"}]}, {"fname":1, "lname":1,"roll":1})
+
+#
+db.student.update({"address.state":"goa" },{$set:{"address.state":"maharastra"}})
+db.student.update({"roll":9},{$set:{"hobbies":["basketball"]}})
+db.student.update({"roll":5},{$set:{"address.state":"maharastra"}})
+db.student.update({"address.state":"goa" },{$set:{"address.state":"maharastra"}})
+
+
+#
+db.student.remove({"_id" : ObjectId("61ac86ea004ff0d36ed7c50f")})
+ db.student.remove({"Name": "andrick"}
+
+

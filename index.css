@@ -266,6 +266,7 @@ h1 {
   height: 220px;
   border-radius: 20px;
   image-rendering: pixelated;
+  background-size: cover;
 }
 .card-b {
   padding: 30px;
