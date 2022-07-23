@@ -4,6 +4,7 @@
 
 ---
 <br>
+<img src="imgs/image2.PNG">
+<br>
 <img src="imgs/image.png">
-
-<b>Note:</b> This application was done just for the purpose of learning/practicing react.
+<b>Note:</b> This application was done just for the purpose of learning/practicing responsive designs.
